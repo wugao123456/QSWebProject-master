@@ -26,8 +26,7 @@ namespace QS.DAL
         /// 初始化使用连接名称为“SQ.DAL.UnitOfWork”的（通过继承）数据访问上下文类
         /// </summary>
         public UnitOfWork()
-            : base("Data Source=127.0.0.1;Initial Catalog=QSDB;Persist Security Info=True;User ID=sa;Password=sa")
-            //  : base("name=SQ.DAL.UnitOfWork")
+          : base("name=SQ.DAL.UnitOfWork")
           
         {
             Configuration.ProxyCreationEnabled = false;
