@@ -314,7 +314,6 @@
     <Compile Include="Tools\WaterMark.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ForgotPasswordEmailTemplate.htm" />
     <Content Include="Areas\assets\css\animate.css" />
     <Content Include="Areas\assets\css\custom.css" />
     <Content Include="Areas\assets\css\pages\about-us.css" />
@@ -2252,9 +2251,6 @@
     <Content Include="Areas\Admin\Views\LogManage\Index.cshtml" />
     <Content Include="Areas\assets\plugins\fancybox\CHANGELOG.md" />
     <Content Include="Areas\assets\plugins\fancybox\README.md" />
-    <Content Include="Profiles\Feedback\201501\2015年工商银行校园招聘考试笔试复习资料_201131000813_5767.doc" />
-    <Content Include="Profiles\Feedback\201501\P20141223-六个一工作总结_201131000813.doc" />
-    <Content Include="Profiles\Feedback\201501\创优表总结鉴定表填写说明_201331000813.doc" />
     <Content Include="Areas\Admin\Views\InforManage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\InforManage\Create.cshtml" />
     <Content Include="Areas\Admin\Views\InforManage\Detail.cshtml" />
@@ -2375,6 +2371,7 @@
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\assets\img\bg\" />
     <Folder Include="Areas\assets\img\blog\" />
     <Folder Include="Areas\assets\img\flags\" />
