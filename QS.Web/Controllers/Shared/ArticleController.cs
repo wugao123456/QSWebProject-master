@@ -77,29 +77,29 @@ namespace QS.Web.Controllers.Shared
             {
                 new ArticleCategoryModel
                 {
-                  CategoryTitle = "youth",
-                  Count = allArticles.Count(dto => dto.Category.Contains("youth")),
+                  CategoryTitle = "Front",
+                  Count = allArticles.Count(dto => dto.Category.Contains("Front")),
                   ThemeClass = "green",
                   ThemeIcon = "fa-book"
                 },
                 new ArticleCategoryModel
                 {
-                  CategoryTitle = "wisdomlife",
-                  Count = allArticles.Count(dto => dto.Category.Contains("wisdomlife")),
+                  CategoryTitle = "Back",
+                  Count = allArticles.Count(dto => dto.Category.Contains("Back")),
                   ThemeClass = "blue",
                   ThemeIcon = "fa-camera-retro"
                 },
                 new ArticleCategoryModel
                 {
-                  CategoryTitle = "psyche",
-                  Count = allArticles.Count(dto => dto.Category.Contains("psyche")),
+                  CategoryTitle = "Algorithm",
+                  Count = allArticles.Count(dto => dto.Category.Contains("Algorithm")),
                   ThemeClass = "yellow",
                   ThemeIcon = "fa-headphones"
                 },
                 new ArticleCategoryModel
                 {
-                  CategoryTitle = "qiusuo",
-                  Count = allArticles.Count(dto => dto.Category.Contains("qiusuo")),
+                  CategoryTitle = "Others",
+                  Count = allArticles.Count(dto => dto.Category.Contains("Others")),
                   ThemeClass = "red",
                   ThemeIcon = "fa-fire"
                 }

@@ -117,6 +117,7 @@ namespace QS.Web.Areas.Admin.Controllers.Midea
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit2([ModelBinder(typeof(JsonBinder<EditTagItem>))]List<EditTagItem> tags)
         {
             var tag = tags[0];
@@ -139,6 +140,7 @@ namespace QS.Web.Areas.Admin.Controllers.Midea
             _articleService.DeleteArticle(id);
             return Content("删除成功");
         }
+        [ValidateInput(false)]
         public ActionResult Upload()
         {
             return BaseUpload(SavePath);
@@ -153,13 +155,13 @@ namespace QS.Web.Areas.Admin.Controllers.Midea
         {
             var articleTags = new List<SelectListItem>
                 {
-                    (new SelectListItem {Text = @"励志人生", Value = "0"}),
-                    (new SelectListItem {Text = @"心理趣事", Value = "1"}),
-                    (new SelectListItem {Text = @"青春文学", Value = "2"}),
-                    (new SelectListItem {Text = @"人生感悟", Value = "3"}),
-                    (new SelectListItem {Text = @"心理征文", Value = "4"}),
-                    (new SelectListItem {Text = @"释然一笑", Value = "5"}),
-                    (new SelectListItem {Text = @"治愈系列", Value = "6"})
+                    (new SelectListItem {Text = @"前端开发", Value = "0"}),
+                    (new SelectListItem {Text = @"后端开发", Value = "1"}),
+                    (new SelectListItem {Text = @"算法学习", Value = "2"}),
+                    (new SelectListItem {Text = @"杂七杂八", Value = "3"})
+                    //(new SelectListItem {Text = @"心理征文", Value = "4"}),
+                    //(new SelectListItem {Text = @"释然一笑", Value = "5"}),
+                    //(new SelectListItem {Text = @"治愈系列", Value = "6"})
                 };
             ViewData["ArticleTag"] = articleTags;
         }

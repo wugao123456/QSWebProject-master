@@ -47,19 +47,19 @@ namespace QS.Web.Common
 
         public static string ArticleCategoryFormat(this HtmlHelper helper, string category)
         {
-            if (category.Equals("youth"))
+            if (category.Equals("Back"))
             {
-                return @".Net学习";
+                return @"后端学习";
             }
-            if (category.Equals("wisdomlife"))
+            if (category.Equals("Front"))
             {
-                return @"前端框架";
+                return @"前端学习";
             }
-            if (category.Equals("psyche"))
+            if (category.Equals("Algorithm"))
             {
                 return @"算法学习";
             }
-            if (category.Equals("qiusuo"))
+            if (category.Equals("Others"))
             {
                 return @"杂七杂八";
             }
@@ -75,9 +75,9 @@ namespace QS.Web.Common
                 case TagBelongType.News:
                     return @"新闻速递";
                 case TagBelongType.Article:
-                    return @"心理文章";
+                    return @"技术文章";
                 case TagBelongType.Gallery:
-                    return @"心理图片";
+                    return @"精美图片";
                 case TagBelongType.Video:
                     return @"影视心灵";
                 case TagBelongType.Book:

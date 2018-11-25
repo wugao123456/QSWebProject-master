@@ -7,7 +7,7 @@
             type: 'text',
             name: 'articleTitle',
             url: '/Admin/ArticleManage/Edit',
-            title: '修改新闻标题',
+            title: '修改技术文章标题',
             success: function (settings) {
                 $('#console').val(settings);
             },
@@ -53,15 +53,20 @@
 
         $('#category').editable({
             source: [{
-                value: '青春文学',
-                text: '青春文学'
+				value: 'Back',
+				text: '前端开发'
             }, {
-                value: '智慧人生',
-                text: '智慧人生'
+                value: 'Front',
+					text: '后台开发'
             }, {
-                value: '求索征文',
-                text: '求索征文'
-            }
+					value: 'Algorithm',
+					text: '算法学习'
+				},
+				{
+					value: 'Others',
+					text: '杂七杂八'
+				}
+
             ],
             showbuttons: false,
             success: function (settings) {
