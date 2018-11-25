@@ -13,6 +13,8 @@ using System.Web.Security;
 
 namespace QS.Web.Controllers
 {
+
+    [LogExceptionFilter]
     public class CommentController : DefaultController
     {
         private readonly ICommentService _commentService;

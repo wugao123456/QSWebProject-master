@@ -15,6 +15,8 @@ using QS.Web.Models;
 
 namespace QS.Web.Controllers
 {
+
+    [LogExceptionFilter]
     public class AccountController : DefaultController
     {
         private static readonly ILog Log = LogManager.GetLogger("Loggering");
@@ -23,7 +25,7 @@ namespace QS.Web.Controllers
         private readonly IMessageService _messageService;
         private readonly IMyMessageService _myMessageService;
 
-        public AccountController(){}
+        public AccountController() { }
 
         public AccountController(IUserService userService, IMessageService messageService, IMyMessageService myMessageService)
         {
@@ -52,7 +54,7 @@ namespace QS.Web.Controllers
         public ActionResult Login(LoginModel model)
         {
             model.ValidateCode = model.ValidateCode.ToLower();
-           
+
             if (Session["ValidateCode"].ToString() != model.ValidateCode)
             {
                 ModelState.AddModelError("ValidateCode", @"验证码错误");
@@ -157,13 +159,13 @@ namespace QS.Web.Controllers
             try
             {
                 QsMail.SendMail("smtp.163.com", "xxxxx@163.com", "password", "passwordSender",
-                    "xxxxx@163.com", "to@domain.com", @"[求索工作室网站]用户密码找回请求", mailBody);
+                    "xxxxx@163.com", "to@domain.com", @"用户密码找回请求", mailBody);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return Content("<script>alert('已将在[忘记密码操作下]填写的信息发送至管理员邮箱，索子会尽快尽快进行密码重置并联系您');window.location='/Home/Index'</script>");
+            return Content("<script>alert('已将在[忘记密码操作下]填写的信息发送至管理员邮箱，大水怪会尽快尽快进行密码重置并联系您');window.location='/Home/Index'</script>");
         }
 
         //注销
@@ -178,31 +180,12 @@ namespace QS.Web.Controllers
             var userAgent = Request.UserAgent;
             _userService.RecordUserLogin(temp.UserId, temp.UserName, ip, computerName, platform, userAgent, false);
             //结束记录
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("DaShuiGuai", "Home");
         }
 
         #endregion
 
         [CustomAuthorize(Roles = "", Required = false)]
-        public ActionResult Confirmation()
-        {
-            var userDto = _userService.GetUserById(GetUserInCookie().UserId);
-
-            if (userDto.State == UserState.Activated || userDto.State == UserState.Retire)
-            {
-                var log = LogManager.GetLogger("用户相关");
-                log.Info(String.Format("[编号：{0}]{1}尝试访问Comfirmation页面", userDto.UserId, userDto.UserName));
-                return Content("<script type='text/javascript'>alert('抱歉，无阅读此页面的权限！');history.go(-1);</script>");
-            }
-
-            BindSelectListDataSource((int)userDto.Gender);
-
-          //  为页面验证消息而进行的处理
-             var userAcnt = QsMapper.CreateMap<UserDto, AccountModel>(userDto);
-
-            return View(userAcnt);
-
-        }
         public ActionResult Register()
         {
             BindSelectListDataSource(1);
@@ -210,79 +193,32 @@ namespace QS.Web.Controllers
             return View();
         }
         [HttpPost]
-        //[CustomAuthorize(Roles = "", Required = false)]
         public ActionResult Register(AccountModel model)
         {
-           var userDto = CustomAuthorizeAttribute.GetUser();
+            var userDto = CustomAuthorizeAttribute.GetUser();
             if (ModelState.IsValid)
             {
-               // var initUser = _userService.GetUserById(userDto.UserId);
-               // if (TryUpdateModel(initUser, null, null, new[] { "UserId", "RealName", "StuNumber", "Identification", "State", "PhotoUrl", "Roles" }))
                 {
-                    //if (initUser.State == UserState.Activated || initUser.State == UserState.Retire)
-                    //{
-                    //    ModelState.AddModelError("duplicate", @"用户的状态出现错误：" + initUser.State);
-                    //}
-                    //else
+                    model.StuNumber = DateTime.Now.ToShortTimeString();
+                    if (!String.IsNullOrEmpty(model.Password))
                     {
-                        model.StuNumber =DateTime.Now.ToShortTimeString();
-                        if (!String.IsNullOrEmpty(model.Password))
-                        {
-                            model.Password = Utilities.MD5(model.Password);
-                        }
-                        model.State = UserState.Activated;
-                        var _userDto = QsMapper.CreateMap<AccountModel, UserDto> (model);
-                        _userService.AddUser(_userDto);
-                      
-                        //将用户状态设为激活状态，此种情况下才能执行查看其他页面
-                       // initUser.State = UserState.Activated;
-                        //if (!String.IsNullOrEmpty(model.Password))
-                        //{
-                        //    initUser.Password = Utilities.MD5(model.Password);
-                        //}
-                       // _userService.AddUser(initUser);
-                        //SafeOutAuthCookie();
-                        //SetAuthCookie(QsMapper.CreateMap<UserDto, UserSafetyModel>(initUser));
-                        return Content("<script>alert('填写成功！');window.location='/Account/ProfileDetail'</script>");
+                        model.Password = Utilities.MD5(model.Password);
                     }
+                    model.State = UserState.Activated;
+                    var _userDto = QsMapper.CreateMap<AccountModel, UserDto>(model);
+                    _userService.AddUser(_userDto);
+                    return Content("<script>alert('填写成功！');window.location='/Account/ProfileDetail'</script>");
                 }
             }
             BindSelectListDataSource((int)userDto.Gender);
             return View(model);
         }
 
-
-        [HttpPost]
-        [CustomAuthorize(Roles = "", Required = false)]
-        public ActionResult Confirmation(AccountModel model)
+        [LogExceptionFilter]
+        public ActionResult Confirmation()
         {
-            var userDto = CustomAuthorizeAttribute.GetUser();
-            if (ModelState.IsValid)
-            {
-                var initUser = _userService.GetUserById(userDto.UserId);
-                if (TryUpdateModel(initUser, null, null, new[] {"UserId", "RealName", "StuNumber", "Identification", "State", "PhotoUrl", "Roles"}))
-                {
-                    if (initUser.State == UserState.Activated || initUser.State == UserState.Retire)
-                    {
-                        ModelState.AddModelError("duplicate", @"用户的状态出现错误：" + initUser.State);
-                    }
-                    else
-                    {
-                        //将用户状态设为激活状态，此种情况下才能执行查看其他页面
-                        initUser.State = UserState.Activated;
-                        if (!String.IsNullOrEmpty(model.Password))
-                        {
-                            initUser.Password = Utilities.MD5(model.Password);
-                        }
-                        _userService.UpdateUserInformation(initUser);
-                        SafeOutAuthCookie();
-                        SetAuthCookie(QsMapper.CreateMap<UserDto, UserSafetyModel>(initUser));
-                        return Content("<script>alert('填写成功！');window.location='/Account/Login'</script>");
-                    }
-                }
-            }
-            BindSelectListDataSource((int)userDto.Gender);
-            return View(model);
+             throw new NotImplementedException();
+           
         }
        
 
@@ -328,6 +264,9 @@ namespace QS.Web.Controllers
         public ActionResult ProfileDetail()
         {
             var user = CustomAuthorizeAttribute.GetUser();
+            if(user==null) return RedirectToAction("Login", "Home");
+
+            if (user.PhotoUrl == null) user.PhotoUrl = "default.jpg";
             ViewBag.Photo = user.PhotoUrl;
             return View();
         }

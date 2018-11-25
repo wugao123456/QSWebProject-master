@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using log4net;
 using Newtonsoft.Json;
 using QS.Web.Areas.Admin.Validations;
 using QS.Web.Models;
@@ -16,17 +17,81 @@ namespace QS.Web.Areas.Admin.Controllers
     [BehindAuthorize(Roles=new[] {"Admin","Editor"})]
     public class BaseController : Controller
     {
+        //protected override void OnException(ExceptionContext filterContext)
+        // {
+        //     // 此处进行异常记录，可以记录到数据库或文本，也可以使用其他日志记录组件。
+        //     // 通过filterContext.Exception来获取这个异常。
+        //     const string filePath = @"D:\Temp\Exceptions.txt";
+        //     var sw = System.IO.File.AppendText(filePath);
+        //     sw.Write(filterCo ntext.Exception.Message);
+        //     sw.Close();
+        //     // 执行基类中的OnException
+        //     base.OnException(filterContext);
+
+        // }
+        /// <summary>
+        /// 异常
+        /// </summary>
+        /// <param name="filterContext"></param>
         protected override void OnException(ExceptionContext filterContext)
         {
-            // 此处进行异常记录，可以记录到数据库或文本，也可以使用其他日志记录组件。
-            // 通过filterContext.Exception来获取这个异常。
-            const string filePath = @"D:\Temp\Exceptions.txt";
-            var sw = System.IO.File.AppendText(filePath);
-            sw.Write(filterContext.Exception.Message);
-            sw.Close();
-            // 执行基类中的OnException
-            base.OnException(filterContext);
+            if (filterContext == null)
+            {
+                throw new ArgumentNullException("filterContext");
+            }
 
+            var httpException = filterContext.Exception as HttpException;
+            var innerException = filterContext.Exception;
+
+            if (filterContext.ExceptionHandled)
+            {
+                //MVC处理HttpException的时候，如果为500 则会自动将其ExceptionHandled设置为true，此时将无法捕获异常
+                if (httpException != null && httpException.GetHttpCode() != 500)
+                {
+                    return;
+                }
+            }
+            if (httpException == null)
+            {
+                filterContext.Controller.ViewBag.UrlRefer = filterContext.HttpContext.Request.UrlReferrer;
+                filterContext.Result = new RedirectResult("/SiteStatus/Error");//跳转至错误提示页面
+            }
+            //如果请求为AJAX请求则返回 JSON
+            else if (filterContext.HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                filterContext.Result = new JsonResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new
+                    {
+                        error = true,
+                        message = filterContext.Exception
+                    }
+                };
+            }
+            else
+            {
+                filterContext.Controller.ViewBag.UrlRefer = filterContext.HttpContext.Request.UrlReferrer;
+                switch (httpException.GetHttpCode())
+                {
+                    case 404:
+                        filterContext.Result = new RedirectResult("/SiteStatus/NotFound"); //跳转至404提示页面
+                        break;
+                    case 500:
+                        filterContext.Result = new RedirectResult("/SiteStatus/InternalError");//跳转至500提示页面
+                        break;
+                    default:
+                        filterContext.Result = new RedirectResult("/SiteStatus/Error");//跳转至错误提示页面
+                        break;
+                }
+            }
+            var error = innerException ?? new Exception("没更加详细的错误信息");
+            var url = HttpContext.Request.RawUrl;//错误发生地址
+            //添加到日志文件中，如果可以的话，需要将url进行处理
+            var log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            log.Error(url, error);
+            filterContext.ExceptionHandled = true;
+            base.OnException(filterContext);
         }
 
         /// <summary>

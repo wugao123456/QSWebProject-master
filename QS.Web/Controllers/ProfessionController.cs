@@ -6,10 +6,13 @@ using System.Web.Mvc;
 using QS.Common;
 using QS.DTO.ProfessionModule;
 using QS.Service;
+using QS.Web.Common;
 using QS.Web.Models;
 
 namespace QS.Web.Controllers
 {
+
+    [LogExceptionFilter]
     public class ProfessionController : Controller
     {
         private readonly IReservationService _reservationService;
