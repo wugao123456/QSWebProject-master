@@ -185,7 +185,7 @@ namespace QS.Web.Controllers
 
         #endregion
 
-        [CustomAuthorize(Roles = "", Required = false)]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             BindSelectListDataSource(1);

@@ -34,17 +34,19 @@ namespace QS.Web.Areas.Admin.Validations
             }
             if (Roles == null || Roles.Length == 0)
             {
-                return true;
+                return false;
             }
 
-            //var result =  Roles.Any(httpContext.User.IsInRole);
-            //var result =  Roles.Any(httpContext.User.IsInRole);
-            //if (!result)
-            //{
-            //    httpContext.Response.StatusCode = 403;
-            //}
-            // return result;
-            return true;
+            // var result =  Roles.Any(httpContext.User.IsInRole);
+
+            // var result = Roles.Any(httpContext.User.IsInRole);
+            var result = httpContext.User.Identity.Name == "Admin" ? true : false;
+            if (!result)
+            {
+                httpContext.Response.StatusCode = 403;
+            }
+            return result;
+         
         }
         public override void OnAuthorization(AuthorizationContext filterContext)
         {

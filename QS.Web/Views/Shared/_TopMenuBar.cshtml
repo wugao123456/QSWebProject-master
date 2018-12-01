@@ -5,7 +5,7 @@
     <ul class="nav navbar-nav">
         <li class="@(ViewBag.CurrentPage == "Home" ? "active" : "")"><a href="@Url.Action("dashuiguai", "Home")">个人主页</a></li>
         @*<li class="@(ViewBag.CurrentPage == "News" ? "active" : "")"><a href="@Url.Action("Index", "News")">新闻速递</a></li>*@
-        <li class="@(ViewBag.CurrentPage == "Article" ? "active" : "")"><a href="@Url.Action("Index", "Article")">技术文章</a></li>
+        <li class="@(ViewBag.CurrentPage == "Article" ? "active" : "")"><a href="@Url.Action("Index", "Article")">学无止境</a></li>
         <li class="@(ViewBag.CurrentPage == "Gallery" ? "active" : "")"><a href="@Url.Action("Index", "Gallery")">精美图片</a></li>
 
         @*<li class="dropdown @(currentPage.Contains("Shared") ? "active" : "")">
@@ -13,7 +13,7 @@
                 真心推荐
                 <i class="fa fa-angle-down"></i>
             </a> 
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu"> q
                 <li class="@(currentPage.Contains("Video") ? "active" : "")"><a href="@Url.Action("Index", "Video")">影视心灵</a></li>
                 <li class="@(currentPage.Contains("Book") ? "active" : "")"><a href="@Url.Action("Index", "Book")">书籍人生</a></li>
             </ul>
