@@ -1206,7 +1206,6 @@
     <Content Include="assets\img\bg\noimage.gif" />
     <Content Include="assets\img\bg\NoImage.png" />
     <Content Include="assets\img\bg\nonews_photo_400x300.jpg" />
-    <Content Include="assets\img\bitbug_favicon.ico" />
     <Content Include="assets\img\black-opacity.png" />
     <Content Include="assets\img\busy.gif" />
     <Content Include="assets\img\corners.png" />
@@ -1221,21 +1220,7 @@
     <Content Include="assets\img\icons\right-hover.png" />
     <Content Include="assets\img\icons\right.png" />
     <Content Include="assets\img\loading_black.gif" />
-    <Content Include="assets\img\page_empty_small.png" />
-    <Content Include="assets\img\people\caijin.jpg" />
-    <Content Include="assets\img\people\jinyihua.jpg" />
-    <Content Include="assets\img\people\linyuan.jpg" />
-    <Content Include="assets\img\people\songyinqiu.jpg" />
-    <Content Include="assets\img\people\zhongxiangyang.jpg" />
     <Content Include="assets\img\pics\img1-medium.jpg" />
-    <Content Include="assets\img\qiusuo\all.jpg" />
-    <Content Include="assets\img\qiusuo\home.jpg" />
-    <Content Include="assets\img\qiusuo\post.jpg" />
-    <Content Include="assets\img\qiusuo\qiusuo_01_1024_412.png" />
-    <Content Include="assets\img\qiusuo\qiusuo_02_1024_412.png" />
-    <Content Include="assets\img\qiusuo\qiusuo_03_1024_412.png" />
-    <Content Include="assets\img\qiusuo\weixin.jpg" />
-    <Content Include="assets\img\qrcode_for_weixin.jpg" />
     <Content Include="assets\img\qs-comment.png" />
     <Content Include="assets\img\qs-line.png" />
     <Content Include="assets\img\qs-word.png" />
@@ -2101,6 +2086,8 @@
     <Folder Include="Areas\assets\plugins\bootstrap-datepicker\build\" />
     <Folder Include="Areas\assets\plugins\bootstrap-datetimepicker\build\" />
     <Folder Include="Areas\assets\plugins\kindeditor-4.1.10\attached\" />
+    <Folder Include="assets\img\people\" />
+    <Folder Include="assets\img\qiusuo\" />
     <Folder Include="assets\plugins\bootstrap-datepicker\build\" />
     <Folder Include="assets\plugins\bootstrap-touchspin\" />
   </ItemGroup>

@@ -3,7 +3,7 @@
 }
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li class="@(ViewBag.CurrentPage == "Home" ? "active" : "")"><a href="@Url.Action("dashuiguai", "Home")">个人主页</a></li>
+        <li class="@(ViewBag.CurrentPage == "dashuiguai" ? "active" : "")"><a href="@Url.Action("dashuiguai", "Home")">个人主页</a></li>
         @*<li class="@(ViewBag.CurrentPage == "News" ? "active" : "")"><a href="@Url.Action("Index", "News")">新闻速递</a></li>*@
         <li class="@(ViewBag.CurrentPage == "Article" ? "active" : "")"><a href="@Url.Action("Index", "Article")">学无止境</a></li>
         <li class="@(ViewBag.CurrentPage == "Gallery" ? "active" : "")"><a href="@Url.Action("Index", "Gallery")">精美图片</a></li>
