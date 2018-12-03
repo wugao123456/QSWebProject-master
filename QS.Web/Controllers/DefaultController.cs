@@ -9,6 +9,8 @@ using QS.Web.Models;
 
 namespace QS.Web.Controllers
 {
+
+    [Common.LogExceptionFilter]
     public class DefaultController : Controller
     {
         //protected override void OnException(ExceptionContext filterContext)

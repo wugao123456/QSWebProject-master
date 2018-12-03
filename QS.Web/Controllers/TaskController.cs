@@ -13,6 +13,7 @@ using QS.Web.Tools;
 namespace QS.Web.Controllers
 {
     [CustomAuthorize]
+    [LogExceptionFilter]
     public class TaskController : DefaultController
     {
         private readonly IFeedbackService _feedbackService;

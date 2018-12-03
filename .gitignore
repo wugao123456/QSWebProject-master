@@ -193,3 +193,4 @@ ModelManifest.xml
 .vs/QSWebProject/v15/Server/sqlite3/storage.ide-shm
 .vs/QSWebProject/v15/Server/sqlite3/storage.ide-wal
 /QS.Web/App_Data/Logs/QSLog_20181121.txt
+*.txt

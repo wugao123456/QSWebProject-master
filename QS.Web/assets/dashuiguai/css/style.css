@@ -1251,10 +1251,6 @@ span.border.two:after {
 	#work,.blog{
 		padding:4em 0;
 	}
-	.footer {
-		min-height: 650px;
-		padding: 4em 0 0em 0;
-	}
 	#port {
       padding:4em 0 0 0;
 	}
@@ -1306,10 +1302,6 @@ span.border.two:after {
 	#port {
 		padding: 3em 0 0 0;
 	}
-	.footer {
-		min-height: 587px;
-		padding: 3em 0 0em 0;
-	}
 	ul.year li:nth-child(2) {
 		margin-top: 157px;
 	}
@@ -1321,7 +1313,7 @@ span.border.two:after {
 	}
 	ul.year li:nth-child(5) {
 		margin-top: 147px;
-	}
+	}s
 	.thumb .team_pos {
 		bottom: -83px;
 		left: 0;

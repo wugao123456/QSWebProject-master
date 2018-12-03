@@ -6,10 +6,13 @@ using System.Web.Mvc;
 using QS.Common;
 using QS.DTO.CommentModule;
 using QS.Service;
+using QS.Web.Common;
 using Webdiyer.WebControls.Mvc;
 
 namespace QS.Web.Controllers
 {
+
+    [LogExceptionFilter]
     public class HomeController : Controller
     {
         private readonly ISuggestionService _suggestionService;

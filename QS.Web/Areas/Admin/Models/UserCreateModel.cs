@@ -19,9 +19,9 @@ namespace QS.Web.Areas.Admin.Models
         }
 
         [MaxLength(32)]
-        [Required(ErrorMessage=@"请输入学号")]
-        [Display(Name = @"学号")]
-        [RegularExpression(@"^\d{12}$", ErrorMessage = @"请输入正确的学号")]
+        [Required(ErrorMessage=@"请输入编号")]
+        [Display(Name = @"编号")]
+        [RegularExpression(@"^\d{12}$", ErrorMessage = @"请输入编号")]
         [Remote("IsStuNumberAvailable", "UserManage", "Admin")]
         //[ScaffoldColumn(false)]
         [Editable(true)]

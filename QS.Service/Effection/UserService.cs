@@ -63,24 +63,12 @@ namespace QS.Service.Effection
             {
                 model = _userRepository.FirstOrDefault(user => user.UserName.Equals(nameOrNumber));
             }
-            //后台的话就不允许使用学号登录
-            if (!isAdmin && model == null && nameOrNumber.All(Char.IsNumber))
-            {//如果用户不存在且用户名都是数字，则判断输入的是否为学号，根据学号找其数据
-
-                model = _userRepository.FirstOrDefault(user => user.StuNumber.Equals(nameOrNumber));
-                
-                if (model == null)
-                {
-                    result.Message = @"该用户不存在";
-                    return result;
-                }
-            }
             if (model == null)
             {
                 result.Message = @"该用户不存在";
                 return result;
             }
-            if (!model.Password.Equals(password))
+            if (model.Password.Equals(password))
             {
                 result.Success = true;
                 result.Message = model.UserId.ToString(CultureInfo.InvariantCulture);

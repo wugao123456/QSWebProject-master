@@ -52,8 +52,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- 结束 效果在改变浏览器的框体大小就可知道 -->
-                    <!-- 求索工作室logo -->
-                    <a class="navbar-brand logo-v1" href="@Url.Action("dashuiguai", "Home")">
+                    <!-- logo -->
+                    <a class="navbar-brand logo-v1" href="@Url.Action("dashuiguai", "Home")"     style="padding:0px">
                         <img src="~/assets/img/dashuiguai.png" id="logoimg" alt="大水怪博客" style="margin-top: 0px;">
                     </a>
                     <!-- 结束 logo -->
@@ -69,57 +69,6 @@
             @RenderSection("featured", required: false)
             @RenderBody()
         </div>
-        <!-- 页脚 -->
-        @*<div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 space-mobile">
-                        <!-- 关于 -->
-                        <h2 class="footer-hlabel">关于</h2>
-                        <p class="margin-bottom-30">信息 软件学院<a href="@Url.Action("About", "Home")"><strong>求索工作室</strong></a>成立于2008年3月，是由学院党委领导下的二级心理辅导站，工作室通过对学生开展心理健康教育与心理咨询工作，帮助学生认识了解自我，挖掘自身潜能，提高身心素质，成为身心健康的人</p>
-                        <div class="clearfix"></div>
-                        <!-- 结束 关于 -->
-                    </div>
-                    <div class="col-md-4 col-sm-4 space-mobile">
-                        <!-- 联系方式 -->
-                        <h2 class="footer-hlabel">联系我们</h2>
-                        <address class="margin-bottom-40">
-                            广州市天河区五山路483号华南农业大学 <br />
-                            信息学院 软件学院 院楼213室<br />
-                            求索心理工作室<br />
-                            Email: <a href="mailto:xrqiusuogongzuoshi@163.com">xrqiusuogongzuoshi@163.com</a>
-                        </address>
-                        <!-- 结束 联系方式 -->
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <!-- 友情链接 -->
-                        <h2 class="footer-hlabel">友情链接</h2>
-                        <dl class="dl-horizontal f-twitter">
-                            <dd>
-                                <a href="http://info.scau.edu.cn/index.asp" target="_blank">学院主页</a>
-                                <span class="sep">|</span>
-                                <a href="http://jwc.scau.edu.cn/" target="_blank">教务处</a>
-                                <span class="sep">|</span>
-                                <a href="http://www.xinli001.com/" target="_blank">壹心理</a>
-                                <span class="sep">|</span>
-                                <a href="http://www.psycofe.com/" target="_blank">心灵咖啡</a>
-                            </dd>
-                        </dl>
-                        <!-- 结束 友情链接 -->
-                        <form action="#" class="form-subscribe">
-                            <div class="input-group input-large">
-                                <input class="form-control" type="text" placeholder="输入邮箱订阅最新资讯">
-                                <span class="input-group-btn">
-                                    <button class="btn theme-btn" type="button" disabled>订阅</button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-        <!-- 结束 页脚 -->
-        <!-- 版本 -->
         <div class="footer">
                 <div class="copyright">
                     <div class="container">
@@ -128,12 +77,6 @@
                                     <span class="margin-right-10">2018 © 大水怪. All Rights Reserved.</span>
                                     | <a href="http://keenthemes.com/preview/" target="_blank">浙ICP备16000810号-2</a>
                                 </p>
-                            @*<div class="col-md-4">
-                                <ul class="social-footer">
-                                    <li><a href="http://weibo.com/qiusuostudio"><i class="fa  fa-weibo"></i></a></li>
-                                    <li><a href="http://xrqiusuogongzuoshi.blog.163.com/"><i class="fa fa-renren"></i></a></li>
-                                </ul>
-                            </div>*@
                         </div>
                     </div>
                 </div>
