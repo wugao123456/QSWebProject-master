@@ -333,7 +333,6 @@
     <Content Include="Areas\assets\img\ajax-modal-loading.gif" />
     <Content Include="Areas\assets\img\arrow-down.png" />
     <Content Include="Areas\assets\img\avatar.png" />
-    <Content Include="Areas\assets\img\back_favicon.ico" />
     <Content Include="Areas\assets\img\bg-opacity.png" />
     <Content Include="Areas\assets\img\bg-white-lock.png" />
     <Content Include="Areas\assets\img\bg-white.png" />
@@ -1153,7 +1152,6 @@
     <Content Include="assets\dashuiguai\css\bootstrap.css" />
     <Content Include="assets\dashuiguai\css\owl.carousel.css" />
     <Content Include="assets\dashuiguai\css\style.css" />
-    <Content Include="assets\dashuiguai\images\about-pic.jpg" />
     <Content Include="assets\dashuiguai\images\arrow.png" />
     <Content Include="assets\dashuiguai\images\b1.jpg" />
     <Content Include="assets\dashuiguai\images\b2.jpg" />
@@ -2073,21 +2071,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\assets\img\bg\" />
-    <Folder Include="Areas\assets\img\blog\" />
-    <Folder Include="Areas\assets\img\flags\" />
-    <Folder Include="Areas\assets\img\gallery\" />
-    <Folder Include="Areas\assets\img\invoice\" />
-    <Folder Include="Areas\assets\img\pages\" />
-    <Folder Include="Areas\assets\img\profile\portfolio\" />
-    <Folder Include="Areas\assets\img\search\" />
-    <Folder Include="Areas\assets\img\social\" />
-    <Folder Include="Areas\assets\img\works\" />
     <Folder Include="Areas\assets\plugins\bootstrap-datepicker\build\" />
     <Folder Include="Areas\assets\plugins\bootstrap-datetimepicker\build\" />
     <Folder Include="Areas\assets\plugins\kindeditor-4.1.10\attached\" />
-    <Folder Include="assets\img\people\" />
-    <Folder Include="assets\img\qiusuo\" />
     <Folder Include="assets\plugins\bootstrap-datepicker\build\" />
     <Folder Include="assets\plugins\bootstrap-touchspin\" />
   </ItemGroup>
