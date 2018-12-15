@@ -27,7 +27,8 @@ namespace QS.Web.Controllers.Shared
             const int pageSize = 5;
             int count;
             var result = _articleService.GetArticlePaged(pageIndex, pageSize, out count).ToList();
-            var temp = DtoToModel(result);
+            result = result.FindAll(item => item.IsTop == false);
+            var  temp = DtoToModel(result);
             var model = new PagedList<ArticleSummaryModel>(temp, pageIndex, pageSize, count);
             return View(model);
         }
@@ -50,8 +51,11 @@ namespace QS.Web.Controllers.Shared
         [ChildActionOnly]
         public ActionResult _PopularTenArticle()
         {
-            var models = _articleService.GetMostPopular(10);
-            return PartialView(models);
+            int count;
+            var models = _articleService.GetArticlePaged(1, 10, out count).ToList();
+            var tempmodel =models.Where(item => item.IsTop == false);
+            //var models = _articleService.GetMostPopular(10);
+            return PartialView(tempmodel.ToList());
         }
 
         public ActionResult _NewestArticle()

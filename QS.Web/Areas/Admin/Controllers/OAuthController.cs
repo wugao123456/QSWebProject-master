@@ -42,13 +42,14 @@ namespace QS.Web.Areas.Admin.Controllers
         public ActionResult Login(LoginModel model)
         {
             model.ValidateCode = model.ValidateCode.ToLower();
-            if (Session["ValidateCode"].ToString() != model.ValidateCode)
-            {
-                ModelState.AddModelError("ValidateCode", @"验证码错误");
-                model.Password = String.Empty;
-                model.ValidateCode = String.Empty;
-                return View(model);
-            }
+            //不要验证码了
+            //if (Session["ValidateCode"].ToString() != model.ValidateCode)
+            //{
+            //    ModelState.AddModelError("ValidateCode", @"验证码错误");
+            //    model.Password = String.Empty;
+            //    model.ValidateCode = String.Empty;
+            //    return View(model);
+            //}
             var result = _userService.CheckUserInLogin(model.NameOrNumber, Utilities.MD5(model.Password), true);
             if (!result.Success)
             {

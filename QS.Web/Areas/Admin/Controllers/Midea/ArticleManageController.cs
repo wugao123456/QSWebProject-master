@@ -15,11 +15,13 @@ namespace QS.Web.Areas.Admin.Controllers.Midea
     public class ArticleManageController : BaseController
     {
         private readonly IArticleService _articleService;
+        private readonly ICommentService _commentService;
         const string SavePath = @"~/Attached/News/";
         public ArticleManageController() { }
-        public ArticleManageController(IArticleService articleService)
+        public ArticleManageController(IArticleService articleService, ICommentService commentService)
         {
             _articleService = articleService;
+            _commentService = commentService;
         }
 
         public ActionResult Index(int id = 1)
@@ -137,7 +139,14 @@ namespace QS.Web.Areas.Admin.Controllers.Midea
 
         public ActionResult Delete(Int64 id)
         {
+            var model = _articleService.GetArticleById(id);
+            var count = 0;
+           var comments=_commentService.GetArticleCommentsWithTopic(id, out count);
+            foreach (var i in comments)
+                _commentService.DeleteArticleComment(i.CommentId);
             _articleService.DeleteArticle(id);
+
+
             return Content("删除成功");
         }
         [ValidateInput(false)]

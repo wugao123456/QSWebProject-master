@@ -24,10 +24,10 @@
             inputclass: 'form-control',
             source: [{
                     value: 1,
-                    text: '置顶'
+                    text: '隐藏'
                 }, {
                     value: 0,
-                    text: '默认'
+                    text: '显示'
                 }
             ],
             display: function (value, sourceData) {

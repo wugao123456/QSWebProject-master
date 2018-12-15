@@ -78,7 +78,7 @@ namespace QS.Web.Areas.Admin.Controllers
             }
             if (_userService.GetUserByStuNumber(model.StuNumber) != null)
             {
-                ModelState.AddModelError("StuNumber", @"该学号已存在");
+                ModelState.AddModelError("StuNumber", @"该Id已存在");
                 return View(model);
             }
             var userDto = QsMapper.CreateMap<UserCreateModel, UserDto>(model);
@@ -136,7 +136,7 @@ namespace QS.Web.Areas.Admin.Controllers
             model.Gender = GenderType.Security;
             model.Phone = model.Email = String.Empty;
             model.Password = Utilities.MD5(model.StuNumber);
-            model.PersonalPage = "华农的某个角落";
+            model.PersonalPage = "某个角落";
             model.About = "这人太懒了，什么都没留下…… ";
             model.PhotoUrl = "no-image.png";
             model.Roles = "Normal";
