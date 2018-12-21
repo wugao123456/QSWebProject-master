@@ -117,10 +117,10 @@
                                     <div class="clearfix">
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn blue @(Model.IsTop? "active" : "" )">
-                                                @Html.RadioButtonFor(model => model.IsTop, true, new { @class = "toggle" }) 置顶
+                                                @Html.RadioButtonFor(model => model.IsTop, true, new { @class = "toggle" }) 显示
                                             </label>
                                             <label class="btn blue @(Model.IsTop ? "" : "active")">
-                                                @Html.RadioButtonFor(model => model.IsTop, false, new { @class = "toggle" }) 默认
+                                                @Html.RadioButtonFor(model => model.IsTop, false, new { @class = "toggle" }) 隐藏
                                             </label>
                                         </div>
                                     </div>
