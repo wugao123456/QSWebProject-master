@@ -1592,19 +1592,6 @@
     <Content Include="assets\scripts\bootbox.js" />
     <Content Include="assets\scripts\preregistration-datepicker.zh-CN.js" />
     <Content Include="assets\scripts\psychology-feedback.js" />
-    <Content Include="Attached\News\image\20150413\20150413001957_2282.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413002151_0915.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413002537_7327.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413002600_1602.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413002732_2071.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413002946_5540.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413003615_7143.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413003630_4013.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413003752_1374.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413005401_8780.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413010201_5517.jpg" />
-    <Content Include="Attached\News\image\20150413\20150413105409_6248.jpg" />
-    <Content Include="Attached\News\image\20150427\20150427105426_1091.jpg" />
     <Content Include="Content\qs_watermark.png" />
     <Content Include="Content\grill_style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -2076,6 +2063,7 @@
     <Folder Include="Areas\assets\plugins\kindeditor-4.1.10\attached\" />
     <Folder Include="assets\plugins\bootstrap-datepicker\build\" />
     <Folder Include="assets\plugins\bootstrap-touchspin\" />
+    <Folder Include="Attached\News\image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

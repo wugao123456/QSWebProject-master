@@ -43,6 +43,7 @@ namespace QS.Web.Controllers.Shared
             int count;
             ViewBag.Category = category;
             var result = _articleService.GetPagedWithCategory(category, id, pageSize, out count).ToList();
+            result = result.FindAll(item => item.IsTop == false);
             var temp = DtoToModel(result);
             var model = new PagedList<ArticleSummaryModel>(temp, id, pageSize, count);
             return View(model);
