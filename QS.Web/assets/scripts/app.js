@@ -234,17 +234,17 @@ var App = function () {
 		
 	}
 	
-    var handleMessage = function() {
-        var $num = $('#message_num');
-        var current = 0;
-        $.post('../Account/_NewMessageNum', null, function(data, textStatus) {
-            current = parseInt(data.num);
-            if (current > 0) {
-                $num.text(current);
-                $num.show();
-            }
-        });
-    }
+    //var handleMessage = function() {
+    //    var $num = $('#message_num');
+    //    var current = 0;
+    //    $.post('../Account/_NewMessageNum', null, function(data, textStatus) {
+    //        current = parseInt(data.num);
+    //        if (current > 0) {
+    //            $num.text(current);
+    //            $num.show();
+    //        }
+    //    });
+    //}
 
     return {
         init: function () {
@@ -254,7 +254,7 @@ var App = function () {
             handleMisc();
             handleSearch();
             handleTheme(); // handles style customer tool
-            handleMessage();
+          //  handleMessage();
             handleFancybox();
 			handleFixedHeader();
         },
