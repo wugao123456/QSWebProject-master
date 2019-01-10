@@ -1943,8 +1943,6 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\OriginalError.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1953,10 +1951,7 @@
     <Content Include="Views\SiteStatus\Error.cshtml" />
     <Content Include="Views\SiteStatus\InternalError.cshtml" />
     <Content Include="Views\SiteStatus\Index.cshtml" />
-    <Content Include="Views\Task\Feedback.cshtml" />
     <Content Include="Views\Shared\_TopMenuBar.cshtml" />
-    <Content Include="Views\Profession\Preregistration.cshtml" />
-    <Content Include="Views\Home\Activity.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Item.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
@@ -1995,8 +1990,6 @@
     <Content Include="Views\Comment\_BookPartial.cshtml" />
     <Content Include="Views\Comment\_BookFormPartial.cshtml" />
     <Content Include="Views\Comment\_BookSegmentPartial.cshtml" />
-    <Content Include="Views\Home\_SuggestionFormPartial.cshtml" />
-    <Content Include="Views\Home\_ActivityPartial.cshtml" />
     <Content Include="Views\Account\ProfileDetail.cshtml" />
     <Content Include="Views\Account\_Personal.cshtml" />
     <Content Include="Views\Account\_ChangePassword.cshtml" />

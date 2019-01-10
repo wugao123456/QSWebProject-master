@@ -61,7 +61,7 @@ namespace QS.Web.Common
             }
             if (category.Equals("Others"))
             {
-                return @"杂七杂八";
+                return @"生活点滴";
             }
             return @"其他";
         }

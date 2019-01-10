@@ -9,7 +9,7 @@ using Webdiyer.WebControls.Mvc;
 using QS.Common;
 using QS.DTO.SharedModule;
 using QS.Service;
-using QS.Web.Models;
+using QS.Web.Models; 
 
 namespace QS.Web.Controllers.Shared
 {
@@ -43,6 +43,7 @@ namespace QS.Web.Controllers.Shared
             int count;
             ViewBag.Category = category;
             var result = _articleService.GetPagedWithCategory(category, id, pageSize, out count).ToList();
+            result = result.FindAll(item => item.IsTop == false);
             var temp = DtoToModel(result);
             var model = new PagedList<ArticleSummaryModel>(temp, id, pageSize, count);
             return View(model);

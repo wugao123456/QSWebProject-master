@@ -41,7 +41,7 @@ namespace QS.Web.Dependency
                     Component.For<IBookRepository, BookRepository>().ImplementedBy<BookRepository>().LifeStyle.Transient,
                     Component.For<IVideoRepository, AtlasRepository>().ImplementedBy<VideoRepository>().LifeStyle.Transient,
                     Component.For<INewsCommentRepository, NewsCommentRepository>().ImplementedBy<NewsCommentRepository>().LifeStyle.Transient,
-                    Component.For<IArticleCommentRepository, ArticleCommentRepository>().ImplementedBy<ArticleCommentRepository>().LifeStyle.Transient,
+                    Component.For<IArticleCommentRepository, ArticleCommentRepository >().ImplementedBy<ArticleCommentRepository>().LifeStyle.Transient,
                     Component.For<IBookCommentRepository, BookCommentRepository>().ImplementedBy<BookCommentRepository>().LifeStyle.Transient,
                     Component.For<IVideoCommentRepository, VideoCommentRepository>().ImplementedBy<VideoCommentRepository>().LifeStyle.Transient,
                     Component.For<ISuggestionRepository, SuggestionRepository>().ImplementedBy<SuggestionRepository>().LifeStyle.Transient,

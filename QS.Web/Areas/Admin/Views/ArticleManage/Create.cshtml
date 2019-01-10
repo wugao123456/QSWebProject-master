@@ -90,11 +90,11 @@
                                         <option value="Back">后端开发</option>
                                         <option value="Front">前端开发</option>
                                         <option value="Algorithm">算法学习</option>
-                                        <option value="Others">杂七杂八</option>
+                                        <option value="Others">生活点滴</option>
                                     </select>
                                     <span class="error-block">
                                         @Html.ValidationMessageFor(model => Model.Category)
-                                    </span>
+                                    </span> 
                                 </div>
                             </div>
                             <!--/span-->
@@ -117,10 +117,10 @@
                                     <div class="clearfix">
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn blue @(Model.IsTop? "active" : "" )">
-                                                @Html.RadioButtonFor(model => model.IsTop, true, new { @class = "toggle" }) 置顶
+                                                @Html.RadioButtonFor(model => model.IsTop, true, new { @class = "toggle" }) 显示
                                             </label>
                                             <label class="btn blue @(Model.IsTop ? "" : "active")">
-                                                @Html.RadioButtonFor(model => model.IsTop, false, new { @class = "toggle" }) 默认
+                                                @Html.RadioButtonFor(model => model.IsTop, false, new { @class = "toggle" }) 隐藏
                                             </label>
                                         </div>
                                     </div>

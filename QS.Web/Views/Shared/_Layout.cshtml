@@ -5,7 +5,7 @@
         <title>@ViewBag.Title</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="大水怪个人博客" name="description" />
-        <meta content="scau_Joseph" name="author" />
+        <meta name="keywords" content="大水怪，个人博客，杭州，程序员 ">
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/assets/plugins/css")
@@ -54,7 +54,7 @@
                     <!-- 结束 效果在改变浏览器的框体大小就可知道 -->
                     <!-- logo -->
                     <a class="navbar-brand logo-v1" href="@Url.Action("dashuiguai", "Home")"     style="padding:0px">
-                        <img src="~/assets/img/dashuiguai.png" id="logoimg" alt="大水怪博客" style="margin-top: 0px;">
+                        <img src="~/assets/img/dashuiguai.png" id="logoimg" alt="大水怪博客" style="width:350px;margin-top: 0px;">
                     </a>
                     <!-- 结束 logo -->
                 </div>
@@ -69,10 +69,10 @@
             @RenderSection("featured", required: false)
             @RenderBody()
         </div>
-        <div class="footer">
+        <div class="footer  login">
                 <div class="copyright">
                     <div class="container">
-                        <div class="row"  style="text-align:center">
+                        <div class="row" style="text-align:center">
                                 <p>
                                     <span class="margin-right-10">2018 © 大水怪. All Rights Reserved.</span>
                                     | <a href="http://keenthemes.com/preview/" target="_blank">浙ICP备18053711号</a>

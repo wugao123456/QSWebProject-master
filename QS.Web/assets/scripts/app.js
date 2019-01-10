@@ -62,12 +62,12 @@ var App = function () {
         jQuery('.popovers').popover();
     }
 
-    function handleCarousel() {
-        jQuery('.carousel').carousel({
-            interval: 8000,
-            pause: 'hover'
-        });
-    }
+    //function handleCarousel() {
+    //    jQuery('.carousel').carousel({
+    //        interval: 8000,
+    //        pause: 'hover'
+    //    });
+    //}
 
     function handleMisc() {
         jQuery('.top').click(function () {
@@ -234,17 +234,17 @@ var App = function () {
 		
 	}
 	
-    var handleMessage = function() {
-        var $num = $('#message_num');
-        var current = 0;
-        $.post('../Account/_NewMessageNum', null, function(data, textStatus) {
-            current = parseInt(data.num);
-            if (current > 0) {
-                $num.text(current);
-                $num.show();
-            }
-        });
-    }
+    //var handleMessage = function() {
+    //    var $num = $('#message_num');
+    //    var current = 0;
+    //    $.post('../Account/_NewMessageNum', null, function(data, textStatus) {
+    //        current = parseInt(data.num);
+    //        if (current > 0) {
+    //            $num.text(current);
+    //            $num.show();
+    //        }
+    //    });
+    //}
 
     return {
         init: function () {
@@ -254,7 +254,7 @@ var App = function () {
             handleMisc();
             handleSearch();
             handleTheme(); // handles style customer tool
-            handleMessage();
+          //  handleMessage();
             handleFancybox();
 			handleFixedHeader();
         },
@@ -366,32 +366,32 @@ var App = function () {
 
     };
     
-    // Handles Bootstrap Accordions.
-    var handleAccordions = function () {
-        var lastClicked;
-        //add scrollable class name if you need scrollable panes
-        jQuery('body').on('click', '.accordion.scrollable .accordion-toggle', function () {
-            lastClicked = jQuery(this);
-        }); //move to faq section
+    //// Handles Bootstrap Accordions.
+    //var handleAccordions = function () {
+    //    var lastClicked;
+    //    //add scrollable class name if you need scrollable panes
+    //    jQuery('body').on('click', '.accordion.scrollable .accordion-toggle', function () {
+    //        lastClicked = jQuery(this);
+    //    }); //move to faq section
 
-        jQuery('body').on('show.bs.collapse', '.accordion.scrollable', function () {
-            jQuery('html,body').animate({
-                scrollTop: lastClicked.offset().top - 150
-            }, 'slow');
-        });
-    }
+    //    jQuery('body').on('show.bs.collapse', '.accordion.scrollable', function () {
+    //        jQuery('html,body').animate({
+    //            scrollTop: lastClicked.offset().top - 150
+    //        }, 'slow');
+    //    });
+    //}
 
     // Handles Bootstrap Tabs.
-    var handleTabs = function () {
-        // fix content height on tab click
-        $('body').on('shown.bs.tab', '.nav.nav-tabs', function () {
-            handleSidebarAndContentHeight();
-        });
+    //var handleTabs = function () {
+    //    // fix content height on tab click
+    //    $('body').on('shown.bs.tab', '.nav.nav-tabs', function () {
+    //        handleSidebarAndContentHeight();
+    //    });
 
-        //activate tab if tab id provided in the URL
-        if (location.hash) {
-            var tabid = location.hash.substr(1);
-            $('a[href="#' + tabid + '"]').click();
-        }
-    }
+    //    //activate tab if tab id provided in the URL
+    //    if (location.hash) {
+    //        var tabid = location.hash.substr(1);
+    //        $('a[href="#' + tabid + '"]').click();
+    //    }
+    //}
 }();
