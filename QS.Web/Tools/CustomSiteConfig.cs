@@ -163,7 +163,7 @@
                 WatermarkType = 1; //1为文字，2为图片
                 WatermarkImgQuality = 80;
                 WatermarkPic = "/Content/qs_watermark.png";
-                WatermarkText = "求索工作室";
+                WatermarkText = "dashuiguai";
                 WatermarkPosition = 9;
                 WatermarkFont = "Tahoma";
                 WatermarkFontSize = 12;
